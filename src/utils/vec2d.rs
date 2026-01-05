@@ -1,6 +1,5 @@
 use std::ops;
 
-use ratatui::crossterm::cursor::MoveRight;
 
 #[derive(Copy, Clone)]
 pub struct Vec2D {

@@ -1,18 +1,17 @@
-use std::fmt::format;
 use std::time::Duration;
 
 use crate::game::game::GameDifficulty;
 
-use crate::utils::vec2d::{self, Vec2D};
+use crate::utils::vec2d::Vec2D;
 
 use ratatui::crossterm::event::KeyCode;
 use ratatui::style::Color;
 use ratatui::widgets::canvas::{Circle, Context, Line};
 
 pub enum LoseCondition {
-    None, 
+    None,
     Border,
-    SelfIntersect
+    SelfIntersect,
 }
 
 #[derive(Clone, Copy)]
@@ -251,10 +250,10 @@ impl Snake {
     }
 }
 
-fn ccw(A: Vec2D, B: Vec2D, C: Vec2D) -> bool{
-    return (C.y-A.y)*(B.x-A.x) > (B.y-A.y)*(C.x-A.x)
+fn ccw(a: Vec2D, b: Vec2D, c: Vec2D) -> bool {
+    return (c.y - a.y) * (b.x - a.x) > (b.y - a.y) * (c.x - a.x);
 }
 
-fn intersect(A: Vec2D, B: Vec2D, C: Vec2D, D: Vec2D )-> bool{
-    return ccw(A,C,D) != ccw(B,C,D) && ccw(A,B,C) != ccw(A,B,D)
+fn intersect(a: Vec2D, b: Vec2D, c: Vec2D, d: Vec2D) -> bool {
+    return ccw(a, c, d) != ccw(b, c, d) && ccw(a, b, c) != ccw(a, b, d);
 }

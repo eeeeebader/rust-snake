@@ -1,9 +1,9 @@
 use std::time::Duration;
 use rand::Rng;
 
-use ratatui::{buffer::Buffer, crossterm::event::KeyCode, layout::Rect, style::{Color, Style}, widgets::{Block, Widget, canvas::{Canvas, Circle, Context, Line, Map, MapResolution, Rectangle}}};
+use ratatui::{crossterm::event::KeyCode, widgets::{Block, Widget, canvas::Canvas}};
 
-use crate::{game::{food::Food, snake::{self, LoseCondition, Snake}}, utils::vec2d::{self, Vec2D}};
+use crate::{game::{food::Food, snake::{LoseCondition, Snake}}, utils::vec2d::Vec2D};
 
 
 #[derive(Clone, Copy, PartialEq, Eq)]
